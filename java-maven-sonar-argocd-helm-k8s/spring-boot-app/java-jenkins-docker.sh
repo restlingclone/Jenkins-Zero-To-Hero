@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # Install Java latest version on ubuntu server.
 
 sudo DEBIAN_FRONTEND=noninteractive apt install openjdk-17-jre -y ; sudo java -version ;
