@@ -2,17 +2,17 @@
 
 # Install Sonarqube server setup on ubuntu 22 and latest.
 #Update the server and install dependencies package.
-DEBIAN_FRONTEND=noninteractive apt update -y;
-DEBIAN_FRONTEND=noninteractive apt install unzip -y;
+sudo DEBIAN_FRONTEND=noninteractive apt update -y;
+sudo DEBIAN_FRONTEND=noninteractive apt install unzip -y;
 
 # Add sonarqube user and install sonarqube with latest community version.
-# Define username as sonarqube, here you can change the password as per your need.
-username=sonarqube
-password=admin
+# Define username as sonarqube
+sudo username=sonarqube
+sudo password=admin
 # Now create the user with password
-adduser $username --disabled-password --gecos Sonarqube;
-echo "$username:$password" | chpasswd ;
-echo Sonarqube: $username has been created with password: $password ;
+sudo adduser $username --disabled-password --gecos Sonarqube;
+sudo echo "$username:$password" | chpasswd ;
+sudo echo Sonarqube: $username has been created with password: $password ;
 # Sonarqube: sonarqube has been created with password: admin
 sudo su - sonarqube ;
 
@@ -26,3 +26,5 @@ sudo ./sonar.sh start
 
 # Sonarqube steup is done, login onto your browser with URL http://<public-ip-address>:9000 and allow 9000 port in your security group.
 # Username and password is admin to first time login.
+
+sync; echo 3 > /proc/sys/vm/drop_caches 
